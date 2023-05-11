@@ -4,10 +4,11 @@ echo "Setting up taky environment..."
 
 sudo mkdir -p /takdata/log
 sudo mkdir -p /takdata/ssl
+sudo chmod -R 777 /takdata
 
 # check if /takdata/taky.conf exists, and if not, copy the example config file
 if [ ! -f /takdata/taky.conf ]; then
-    cp -r /app/taky.conf.example /takdata/taky.conf
+    sudo cp -r /app/taky.conf.example /takdata/taky.conf
 fi
 
 # check /takdata/taky.conf for the REDIS value
