@@ -6,7 +6,7 @@ build:
 					.
 
 up-test:: ## start last build of engine in the test framework
-	docker run --rm -it -v $(shell pwd)/takdata:/takdata -p 8087:8087 -p 8089:8089 applehat/taky:latest
+	docker run --rm -it -v $(shell pwd)/takdata:/takdata -p 8087:8087 -p 8089:8089 -p 80:80 applehat/taky:latest
 
 
 push: 

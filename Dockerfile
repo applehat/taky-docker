@@ -2,7 +2,7 @@ FROM python:3.11.3
 
 # Initial setup for adding a non-root user
 RUN apt-get update && \
-      apt-get -y install sudo lsb-release
+      apt-get -y install sudo lsb-release crudini certbot
 
 RUN adduser --disabled-password --gecos '' takuser
 RUN adduser takuser sudo
@@ -19,6 +19,7 @@ WORKDIR /app
 
 ADD entrypoint.sh /app/entrypoint.sh
 ADD taky.conf /app/taky.conf.example
+ADD certbot.conf /app/certbot.conf.example
 RUN sudo chmod +x /app/entrypoint.sh
 
 RUN sudo python3 -m pip install --upgrade pip
